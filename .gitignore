@@ -1,0 +1,15 @@
+# Private reading data must live outside this public skill repository.
+.readmate-pointer.json
+/readmate-library/
+/notes/
+/sources/
+/handoffs/
+/reflections/
+/config.json
+/index.json
+*.local.json
+.env
+.env.*
+.DS_Store
+__pycache__/
+/dist/
