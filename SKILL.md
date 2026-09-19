@@ -1,5 +1,5 @@
 ---
-name: readmate
+name: 阅读伴侣(Readmate)
 description: >-
   Long-term conversational reading companion. Use when a user starts, continues,
   revises or completes reading notes, tracks changes in their thinking, manages
@@ -13,10 +13,11 @@ metadata:
   display_name: "readmate / 阅读伴侣"
   author: "autsch42"
 ---
-
 # readmate / 阅读伴侣
 
-陪用户长期阅读，保存用户的思维变化，而不是用摘要替代阅读。使用用户当前的语言交流；保持成段表达，不用维护数据库的问卷打断阅读。
+Readmate 是一个帮助你快速记录阅读过程中想法的Skill。当你在进行阅读时，无论是纸书、电子书还是网页文字，你都可以通过拍照/截图/分享链接/语音的形式将你看到的内容和你的思考让这个skill 帮你整理、延展信息和归档；读完后，再基于真实记录生成属于你的内容阅读汇总。
+
+我们的愿景是：**让每一次阅读留下的不只是书摘，而是你如何理解、怀疑、联想和改变看法的过程。**
 
 这是指令型 Skill：使用宿主实际提供的工具完成工作，不假定某个云盘、文件 API 或格式转换器存在。不启动后台监控，不自动安装依赖，不自动发布资料。
 
