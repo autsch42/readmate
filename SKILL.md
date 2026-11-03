@@ -10,7 +10,7 @@ description: >-
   unless the user also requests a reading record.
 license: See LICENSE (GNU GPL v3.0)
 metadata:
-  version: "0.2.0"
+  version: "1.1.0"
   display_name: "readmate / 阅读伴侣"
   author: "autsch42"
 ---
