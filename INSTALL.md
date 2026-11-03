@@ -2,11 +2,23 @@
 
 [返回项目首页](README.md)
 
-适用于 v0.1.0 指令型 Skill。以下安装方式依据官方文档整理；尚未完成各平台实机安装与端到端测试。请先用测试资料验证保存和接力流程。
+适用于 v0.2.0 指令型 Skill。以下安装方式依据官方文档整理；尚未完成各平台实机安装与端到端测试。请先用测试资料验证保存和接力流程。
 
-安装的是整个 `readmate` 目录，不只是复制 `SKILL.md`。入口通过相对路径读取 `references/`、`templates/` 和 `evals/`；它们必须一起保留。通用结构依据 [Agent Skills 规范](https://agentskills.io/specification)。
+安装的是整个 `readmate` 目录，不只是复制 `SKILL.md`。入口通过相对路径使用 `references/`、`templates/`、`assets/`、`scripts/` 和 `evals/`；它们必须一起保留。通用结构依据 [Agent Skills 规范](https://agentskills.io/specification)。
 
-从 GitHub 安装前先确认目标分支根目录已有 `SKILL.md`。如果看到的仍只有初始 README，请使用包含 `README.md` 和 `SKILL.md` 的完整文件包，待源码同步后再使用仓库安装命令。`main` 是开发分支，不代表已有稳定版 Release；安装前阅读来源文件并保留产品自己的安全确认。
+阅读记录本身不需要代码依赖。分享图默认按随包的全幅主题设计使用宿主现有图片生成能力，专业设计 Skill 可辅助规划；Readmate 不捆绑外部技能或生图服务。仅在明确选择自带实验模板时，渲染器需要 Node.js 才能生成 HTML，导出 PNG 另需宿主已有的 Playwright 与浏览器，详见[分享卡片说明](references/reading-share-cards.md)。没有出图能力时仍可交付选句、配文与设计交接单，不表示已经生成图片。
+
+默认小红书，无需填写平台或账号配置。可选上传依赖宿主已有的连接器、专用发布 Skill 或获准浏览器能力，登录由用户在官方界面完成；不随 Readmate 分发账号、Cookie、端口或私有脚本路径。缺上传能力仍可下载图文手动使用，不影响阅读报告功能。规则见[社交平台交付](references/social-delivery.md)。
+
+可从 [GitHub v0.2.0 发布页](https://github.com/autsch42/readmate/releases/tag/v0.2.0) 下载完整 `readmate-v0.2.0.zip`，并用同页 `SHA256SUMS.txt` 核对文件。`main` 用于持续更新；需要固定版本时采用带版本号的发布包。安装前阅读来源文件并保留产品自己的安全确认。
+
+## SkillHub 安装与更新
+
+让具备技能安装能力的宿主执行：
+
+> 请根据 https://skillhub.cn/install/skillhub.md，安装或更新 @indiv-imqianxun/readmate 到当前已上架的最新版。保留我的私有阅读库和设置，不覆盖技能目录中的本地改动。
+
+安装后检查实际取得的 `SKILL.md` 中 `metadata.version`。本次目标版本为 `0.2.0`；SkillHub 的提交审核和公开可安装状态分开，若仍取得旧版，先查看平台版本状态，不把“已提交”当成新版已上架。需要立即使用时可从上述 GitHub 发布页安装固定版本。更新技能文件不自动更新旧会话已加载的规则，必要时重新加载技能或开启新会话。
 
 ## Codex：本地 Skill 安装
 

@@ -1,0 +1,18 @@
+{
+  "title": "一次示例阅读",
+  "style": "editorial",
+  "cards": [
+    {
+      "kind": "reader_quote",
+      "text": "如果一件事总要立刻见效，那些需要慢慢积累的东西，该放在哪里？",
+      "source": {"work": "《示例阅读刊》", "edition": "虚构样例", "article": "《慢慢长成的事》", "location": "记录01"},
+      "evidence": {"text": "如果一件事总要立刻见效，那些需要慢慢积累的东西，该放在哪里？", "locator": "虚构测试记录01"}
+    },
+    {
+      "kind": "reader_paraphrase",
+      "text": "我开始想知道，一种改变的好处和代价，是否由同一群人承担。",
+      "source": {"work": "《示例阅读刊》", "edition": "虚构样例", "article": "《变化的另一面》", "location": "记录02"},
+      "evidence": {"text": "我觉得这种改变有好处，可是谁得到了好处、谁付出了代价？是不是同一群人？", "locator": "虚构测试记录02"}
+    }
+  ]
+}

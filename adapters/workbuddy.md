@@ -12,7 +12,7 @@ display_name_en: Readmate
 description_zh: 长期对话阅读，保留个人观点与思维变化，支持来源归档、用户配置和会话接力。
 description_en: A reading companion preserving your own reflections, evolving views, sources, settings, and session handoffs.
 category: writing
-version: "0.1.0"
+version: "0.2.0"
 author: autsch42
 ```
 

@@ -43,6 +43,8 @@
 
 `note_format` 是可改默认值，不是所有宿主已支持任意格式的声明。`user_preferences` 只保存用户明确的长期要求；对象级例外放索引对象条目。不要写入令牌或私有对话全文。
 
+分享无需增加配置即可使用：报告后主动询问，默认小红书与 `full-bleed-reading-v1`。用户明确要求长期覆盖时，才在 `user_preferences.sharing` 写入相应字段，例如 `{"offer_after_report": false}`；不写账号或登录信息。缺少此字段时使用 Skill 默认值，不把旧配置重置成模板。
+
 ## 对象索引 `index.json`
 
 ```json
@@ -194,3 +196,32 @@
 ## 记录依据与跨来源关联
 〔关键归纳对应的记录及来源 ID。〕
 ```
+
+## 分享包登记（私有衍生产物）
+
+制作完成时可采用下面的结构，放在阅读对象的私有输出目录中，索引 `derived_outputs` 只登记其定位符。图片和文案是对外可交付部分，私有清单与上传回执不加入下载分享包。路径以实际输出为准；这里的文件名不是已生成声明。
+
+```json
+{
+  "object_id": "OBJECT_ID",
+  "report_uri": "REPORT_URI",
+  "design_preset": "full-bleed-reading-v1",
+  "platform": "xiaohongshu",
+  "images": ["images/01.png", "images/02.png"],
+  "caption": {
+    "title": "TITLE",
+    "body": "BODY",
+    "hashtags": []
+  },
+  "caption_uri": "分享文案.md",
+  "private_manifest_uri": "private-manifest.json",
+  "checks": {"content": "pending", "visual": "pending"},
+  "delivery": {
+    "action": "save_draft",
+    "status": "not_requested",
+    "receipt_uri": null
+  }
+}
+```
+
+`images` 数组即上传顺序，第一张为封面；内容检查与视觉检查均实际通过后才标 `passed`。`delivery.status` 按事实改为 `pending`、`saved_unverified`、`draft_verified` 或 `failed`；本次用户指令与所批准版本记入私有回执，不写成“永久允许自动发布”。完成草稿核验不设置 `published`。平台正式发表若另有明确授权与能力，单独记录实际发表证据。

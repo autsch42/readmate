@@ -1,15 +1,16 @@
 ---
-name: 阅读伴侣(Readmate)
+name: readmate
 description: >-
-  Long-term conversational reading companion. Use when a user starts, continues,
+  Use when a user starts, continues,
   revises or completes reading notes, tracks changes in their thinking, manages
-  reading sources, or changes reading-library settings. 阅读伴侣：记录阅读感受、专题阅读、
-  观点变化、会话接力及个人读后感。Not for unrelated file management or a one-off summary
+  reading sources, changes reading-library settings, or turns their reading report
+  into attributed share images and captions, or sends a reviewed share pack to
+  social-platform drafts. 阅读伴侣：阅读感受、专题阅读、观点变化、会话接力、
+  读书报告、小红书分享图文与草稿上传。Not for unrelated file management or a one-off summary
   unless the user also requests a reading record.
 license: See LICENSE (GNU GPL v3.0)
-compatibility: Requires authorized persistent file or document read/write tools for archival use. Source reading and optional format conversion depend on host tools. No cloud account, API key, or executable dependency is bundled.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   display_name: "readmate / 阅读伴侣"
   author: "autsch42"
 ---
@@ -19,11 +20,17 @@ Readmate 是一个帮助你快速记录阅读过程中想法的Skill。当你在
 
 我们的愿景是：**让每一次阅读留下的不只是书摘，而是你如何理解、怀疑、联想和改变看法的过程。**
 
-这是指令型 Skill：使用宿主实际提供的工具完成工作，不假定某个云盘、文件 API 或格式转换器存在。不启动后台监控，不自动安装依赖，不自动发布资料。
+这是指令型 Skill：使用宿主实际提供的工具完成工作，不假定某个云盘、文件 API 或格式转换器存在。不启动后台监控，不自动安装依赖；社交平台上传须有用户指令，生成分享材料不等于授权上传或公开发布。
+
+长期归档需要宿主提供获授权的持久文件或文档读写工具；来源读取、格式转换、图片生成与草稿上传取决于宿主能力。包中不带云账号、API密钥或外部可执行依赖。
 
 ## 按任务读取资源
 
 首次运行、恢复任务、修改设置或正式保存前，读取 [存储与用户配置](references/storage-and-settings.md)。新增、修订或讨论阅读记录时，读取 [阅读流程](references/reading-workflow.md)。处理附件、网页、跨载体位置、会话接力或完成汇总时，读取 [来源、接力与完成](references/sources-handoff-completion.md)。需要建档时使用 [配置及文档模板](templates/templates.md)，不要把整个模板目录复制成用户的阅读库。
+
+报告完成后的询问、分享图文制作与预览，读取 [阅读分享卡片](references/reading-share-cards.md)；生成图片时再读 [默认卡片设计](references/default-share-design.md) 和 [设计 Skill 接入](references/share-design-adapters.md)。默认采用《第一财经》2026年10月刊已确认的全幅底图方向，一次生成含文字图片，字体随内容变化；默认平台为小红书，不需要用户填写平台配置。用户指定的句子、风格和平台优先。只要文字时不出图。
+
+用户要求发送预览过的分享材料时，读取 [社交平台交付](references/social-delivery.md)。使用宿主已授权的工具和用户自己的登录态，默认保存草稿；不把账号、凭据或本机专用脚本路径写进公共 Skill。工具不可用时交付可下载的图片和文案，如实说明未上传。
 
 安装方式由 README 说明；[验收案例](evals/acceptance.md) 只用于测试，不是已通过的测试记录。根据需要加载，不每轮重复全文读取所有材料。
 
@@ -89,6 +96,10 @@ Readmate 是一个帮助你快速记录阅读过程中想法的Skill。当你在
 - “读完了 / 看完了 / 完成了”：区分完成一章、一篇子来源、整本书或整个专题，读取相应范围的全部记录再汇总。
 
 完成汇总应保留最初理解、重要转折、最终接受/存疑/反对的判断、跨来源关联与未解问题，引用记录 ID。材料不足就注明，不填造用户经历或评分。读后感作为已标识的衍生产物，不取代原阅读主档。
+
+每份阅读报告完成交付后，主动询问一次：“要不要把这份报告做成适合小红书的分享图和文案？我会先给你预览。”有选择控件时提供“生成分享图文 / 只保留报告”。这只是询问，不先出图或上传；用户已明确要分享就直接制作，明确只要文字、本次拒绝或已在私有设置关闭询问时不再问。普通记笔记、回顾和小修报告不重复触发。
+
+用户同意后，从真实记录自动挑句或优先采用指定句子，按默认设计生成整组图片，并交付小红书标题、正文和相关话题。逐张核对文字与篇目，在会话内展示可点开的图片预览及可复制文案，再提供“保存到小红书草稿箱”的下一步；具体制作和上传分界见上述参考。卡片和配文均为衍生产物，不取代主档。
 
 上下文过长或用户要求换会话时，先保存接力摘要再提示新建聊天；不声称自己已创建聊天窗口或能精确预测上下文耗尽。另一 Agent 必须能访问或显式导入配置与档案后，才谈恢复；不承诺跨产品自动同步。
 
